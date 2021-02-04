@@ -40,17 +40,18 @@ from gpiozero import LED, Button
 # # # #         button1.text="GPIO26_ON "
 # # # #         led26.off()
 
+button = Button(20)
 led = LED(26)
 
 def scanInput():
-    if Button.is_pressed:
+    if button.is_pressed:
         text.value = 1 #"GPIO2 ON "
         led.on()
     else:
         text.value = 0 #"GPIO2 OFF"
         led.off()
 def exitGUI():
-    #text.destroy() #don't need this
+    text.destroy()
     if app.yesno("Close", "Do you want to quit?"):
         app.destroy()
         print("Adios")
